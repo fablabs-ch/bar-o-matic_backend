@@ -6,9 +6,13 @@ services:
     build: .
     ports:
       - 8080:8080
-  db:
+    links:
+      - rethinkdb:rethinkdb
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
+  rethinkdb:
     image: rethinkdb
-    container_name: cockail-db
+    container_name: cocktail-db
     ports:
       - 8081:8080
       - 28015:28015
