@@ -1,0 +1,16 @@
+version: '3.0'
+services:
+  web:
+    image: gaetancollaud/cocktail-backend
+    container_name: cockail-backend
+    build: .
+    ports:
+      - 8080:8080
+  db:
+    image: rethinkdb
+    container_name: cockail-db
+    ports:
+      - 8081:8080
+      - 28015:28015
+    volumes:
+      - "./data/db:/data:rw"

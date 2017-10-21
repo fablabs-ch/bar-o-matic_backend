@@ -6,5 +6,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class IngredientRepository extends AbstractRepository<Ingredient> {
+	public IngredientRepository() {
+		super("ingredient", Ingredient.class);
+	}
 
 }
