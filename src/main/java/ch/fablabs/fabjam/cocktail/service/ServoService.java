@@ -25,7 +25,7 @@ public class ServoService {
 		LOG.info("address={}, bus={}", device.getAddress(), device.getBus());
 
 		try {
-			device.getChannel(0).setPWM(servo, mapAngle(angle));
+			device.getChannel(servo).setPWM(0, mapAngle(angle));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
