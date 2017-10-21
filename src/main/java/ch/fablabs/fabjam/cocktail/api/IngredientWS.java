@@ -1,28 +1,23 @@
 package ch.fablabs.fabjam.cocktail.api;
 
 import ch.fablabs.fabjam.cocktail.data.Ingredient;
-import ch.fablabs.fabjam.cocktail.data.Ingredient;
+import ch.fablabs.fabjam.cocktail.repository.IngredientRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
+import javax.annotation.PostConstruct;
 
+@RestController
 @RequestMapping("/api/ingredients")
-public class IngredientWS {
+public class IngredientWS extends AbstractCrudWS<Ingredient> {
 
-	
-	public List<Ingredient> findAll() {
+	@Autowired
+	private IngredientRepository ingredientRepository;
 
+	@PostConstruct
+	public void postConstruct() {
+		this.setRepository(ingredientRepository);
 	}
 
-	public Ingredient add(Ingredient Ingredient) {
-
-	}
-
-	public Ingredient edit(long IngredientId, Ingredient Ingredient) {
-
-	}
-
-	public Ingredient delete(long IngredientId) {
-		
-	}
 }

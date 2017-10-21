@@ -5,9 +5,11 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class Recipe {
+public class Recipe implements ItfData {
+	private Long id;
 	private String name;
 	private String description;
 	private String imageUrl;
+	private boolean shakeYourBody;
 	private List<RecipeItem> items;
 }
