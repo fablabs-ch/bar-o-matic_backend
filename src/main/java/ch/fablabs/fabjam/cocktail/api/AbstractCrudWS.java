@@ -1,15 +1,8 @@
 package ch.fablabs.fabjam.cocktail.api;
 
-import ch.fablabs.fabjam.cocktail.data.ItfData;
+import ch.fablabs.fabjam.cocktail.data.entities.ItfData;
 import ch.fablabs.fabjam.cocktail.repository.AbstractRepository;
-import com.rethinkdb.RethinkDB;
 import lombok.Setter;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import java.util.List;
 
 public class AbstractCrudWS<T extends ItfData> {
 

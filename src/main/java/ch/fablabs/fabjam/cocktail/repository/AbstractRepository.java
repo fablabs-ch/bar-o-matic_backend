@@ -1,23 +1,10 @@
 package ch.fablabs.fabjam.cocktail.repository;
 
 
-import ch.fablabs.fabjam.cocktail.data.ItfData;
+import ch.fablabs.fabjam.cocktail.data.entities.ItfData;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.rethinkdb.RethinkDB;
-import com.rethinkdb.gen.ast.Db;
-import com.rethinkdb.gen.exc.ReqlNonExistenceError;
-import com.rethinkdb.gen.exc.ReqlOpFailedError;
-import com.rethinkdb.net.Connection;
-import com.rethinkdb.net.Cursor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-
-import javax.annotation.PostConstruct;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 @Slf4j
 @RequiredArgsConstructor

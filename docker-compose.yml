@@ -7,21 +7,21 @@ services:
     ports:
       - 8080:8080
     links:
-      - rethinkdb:rethinkdb
+      - mongodb:mongodb
     environment:
       - SPRING_PROFILES_ACTIVE=dev
-  rethinkdb:
-    image: rethinkdb
-    container_name: cocktail-db
-    ports:
-      - 8081:8080
-      - 28015:28015
-    volumes:
-      - "./data/db:/data:rw"
+#  rethinkdb:
+#    image: rethinkdb
+#    container_name: cocktail-db
+#    ports:
+#      - 8081:8080
+#      - 28015:28015
+#    volumes:
+#      - "./data/db:/data:rw"
   mongodb:
     image: mongo
     container_name: cocktail-mongo
-    command: bash -c "echo 1 && mongod --auth"
+    user: root
     ports:
       - 27017:27017
     volumes:

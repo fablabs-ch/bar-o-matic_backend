@@ -1,7 +1,7 @@
 package ch.fablabs.fabjam.cocktail.repository;
 
 
-import ch.fablabs.fabjam.cocktail.data.IngredientConfig;
+import ch.fablabs.fabjam.cocktail.data.entities.IngredientConfig;
 import org.springframework.stereotype.Repository;
 
 @Repository

@@ -1,8 +1,7 @@
 package ch.fablabs.fabjam.cocktail.repository;
 
 
-import ch.fablabs.fabjam.cocktail.data.Recipe;
-import org.springframework.data.mongodb.repository.MongoRepository;
+import ch.fablabs.fabjam.cocktail.data.entities.Recipe;
 import org.springframework.stereotype.Repository;
 
 @Repository

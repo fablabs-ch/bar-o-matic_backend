@@ -1,10 +1,12 @@
-package ch.fablabs.fabjam.cocktail.data;
+package ch.fablabs.fabjam.cocktail.data.entities;
 
 import lombok.Data;
+import org.springframework.data.annotation.Id;
 
 @Data
 public class IngredientConfig implements ItfData {
-	private Long id;
+	@Id
+	private String id;
 	private Ingredient ingredient;
 	private Long valveDistanceMm;
 	private Long valveId;
