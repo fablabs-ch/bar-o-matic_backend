@@ -1,7 +1,7 @@
 package ch.fablabs.fabjam.cocktail.api;
 
 import ch.fablabs.fabjam.cocktail.data.entities.ItfData;
-import ch.fablabs.fabjam.cocktail.repository.AbstractMongoRepository;
+import ch.fablabs.fabjam.cocktail.repository.AbstractRepository;
 import lombok.Setter;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,7 +13,7 @@ import java.util.List;
 public class AbstractMongoCrudWS<T extends ItfData> {
 
 	@Setter
-	public AbstractMongoRepository<T> repository;
+	public AbstractRepository<T> repository;
 
 	@RequestMapping("")
 	public List<T> findAll() {
