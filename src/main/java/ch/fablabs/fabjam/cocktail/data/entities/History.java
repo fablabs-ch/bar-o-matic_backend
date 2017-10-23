@@ -1,4 +1,4 @@
-package ch.fablabs.fabjam.cocktail.data;
+package ch.fablabs.fabjam.cocktail.data.entities;
 
 import lombok.Data;
 

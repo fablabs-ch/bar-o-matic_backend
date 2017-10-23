@@ -1,6 +1,6 @@
 package ch.fablabs.fabjam.cocktail.api;
 
-import ch.fablabs.fabjam.cocktail.data.RecipeItem;
+import ch.fablabs.fabjam.cocktail.data.entities.RecipeItem;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;

@@ -1,6 +1,6 @@
 package ch.fablabs.fabjam.cocktail.api;
 
-import ch.fablabs.fabjam.cocktail.data.Ingredient;
+import ch.fablabs.fabjam.cocktail.data.entities.Ingredient;
 import ch.fablabs.fabjam.cocktail.repository.IngredientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
