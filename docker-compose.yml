@@ -18,3 +18,11 @@ services:
       - 28015:28015
     volumes:
       - "./data/db:/data:rw"
+  mongodb:
+    image: mongo
+    container_name: cocktail-mongo
+    command: bash -c "echo 1 && mongod --auth"
+    ports:
+      - 27017:27017
+    volumes:
+      - "./data/mongo:/data/db"
