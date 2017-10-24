@@ -15,7 +15,6 @@ public class DebugWS {
 	@Autowired
 	private ServoService servoService;
 
-
 	/**
 	 * @param servo [0, 14]
 	 * @param angle [0, 180]
