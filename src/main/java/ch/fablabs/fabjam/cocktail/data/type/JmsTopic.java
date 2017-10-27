@@ -1,7 +1,8 @@
 package ch.fablabs.fabjam.cocktail.data.type;
 
 public interface JmsTopic {
-	static final String SERIAL_LINE = "serial-line";
-	static final String SERIAL_STATUS = "serial-status";
+	String SERIAL_INPUT = "serial-line";
+//	String SERIAL_OUTPUT = "serial-output";
+	String SERIAL_STATUS = "serial-status";
 
 }

@@ -15,7 +15,7 @@ public class SerialMessageDecoder {
 	@Autowired
 	private JmsTemplate jmsTemplate;
 
-	@JmsListener(destination = JmsTopic.SERIAL_LINE)
+	@JmsListener(destination = JmsTopic.SERIAL_INPUT)
 	public void receiveMessage(String rawLine) {
 		String[] split = rawLine.split(":");
 		if (split[0].equals("s")) {

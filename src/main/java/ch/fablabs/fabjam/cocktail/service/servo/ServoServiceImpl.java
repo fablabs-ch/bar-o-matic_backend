@@ -1,4 +1,4 @@
-package ch.fablabs.fabjam.cocktail.service;
+package ch.fablabs.fabjam.cocktail.service.servo;
 
 import ch.fablabs.fabjam.cocktail.driver.PWMDevice;
 import lombok.extern.slf4j.Slf4j;

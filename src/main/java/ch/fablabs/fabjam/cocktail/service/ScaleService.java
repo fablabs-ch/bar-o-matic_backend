@@ -9,20 +9,20 @@ import rx.subjects.BehaviorSubject;
 import rx.subjects.Subject;
 
 @Service
-public class CarierService {
+public class ScaleService {
 
-	private Subject<Integer, Integer> distanceSubject;
+	private Subject<Integer, Integer> weightSubject;
 
-	public CarierService() {
-		this.distanceSubject = BehaviorSubject.create(-1);
+	public ScaleService() {
+		this.weightSubject = BehaviorSubject.create(-1);
 	}
 
-	public Observable<Integer> distanceFromHomeInMm() {
-		return distanceSubject;
+	public Observable<Integer> weightInGramme() {
+		return weightSubject;
 	}
 
 	@JmsListener(destination = JmsTopic.SERIAL_STATUS)
-	protected void serialStatus(SerialStatus status) {
-		this.distanceSubject.onNext(status.getCarrierDistMm());
+	private void serialStatus(SerialStatus status) {
+		this.weightSubject.onNext(status.getPayloadWeightGr());
 	}
 }

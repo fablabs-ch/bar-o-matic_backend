@@ -10,8 +10,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.core.JmsTemplate;
 
-import javax.annotation.PostConstruct;
-
 @Slf4j
 @RequiredArgsConstructor
 public class SerialReader implements SerialPortEventListener {
@@ -49,7 +47,7 @@ public class SerialReader implements SerialPortEventListener {
 				buffer.delete(0, newLine + 1);
 				LOG.trace("Read: {}", line);
 				if (jmsTemplate != null) {
-					jmsTemplate.convertAndSend(JmsTopic.SERIAL_LINE, line);
+					jmsTemplate.convertAndSend(JmsTopic.SERIAL_INPUT, line);
 				}
 			}
 		} while (newLine != -1);

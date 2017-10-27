@@ -1,14 +1,16 @@
 package ch.fablabs.fabjam.cocktail.service.serial;
 
+import ch.fablabs.fabjam.cocktail.data.type.JmsTopic;
 import jssc.SerialPort;
 import jssc.SerialPortException;
 import jssc.SerialPortList;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
+import org.springframework.jms.annotation.JmsListener;
 
 import java.util.Arrays;
-import java.util.concurrent.Executor;
+import java.util.Optional;
 import java.util.concurrent.Semaphore;
 
 @Slf4j
@@ -23,9 +25,12 @@ public class SerialConnection implements Runnable {
 
 	private boolean running = true;
 
+	private Optional<SerialPort> serialPortOptional;
+
 	public SerialConnection(String port) {
 		this.port = port;
 		semaphore = new Semaphore(1);
+		serialPortOptional = Optional.empty();
 	}
 
 	@Override
@@ -74,12 +79,25 @@ public class SerialConnection implements Runnable {
 				autowireCapableBeanFactory.autowireBean(sr);
 				serialPort.addEventListener(sr, SerialPort.MASK_RXCHAR);
 
-				//TODO release semaphore when connexion closed
-//				serialPort.writeString("Hurrah!");
+				serialPortOptional = Optional.of(serialPort);
 			} catch (SerialPortException ex) {
 				System.out.println("There are an error on writing string to port т: " + ex);
 			}
 		}
-
 	}
+
+	public void send(String str) {
+		if (serialPortOptional.isPresent()) {
+			try {
+				serialPortOptional.get().writeString(str + "\n");
+				LOG.debug("Serial message sent: {}", str);
+			} catch (SerialPortException e) {
+				LOG.error("Unable to send serial message: {}", str, e);
+			}
+		} else {
+			LOG.error("Unable to send message because port is not open: {}", str);
+		}
+	}
+
+
 }
