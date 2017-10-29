@@ -10,7 +10,7 @@ import javax.annotation.PostConstruct;
 
 @RestController
 @RequestMapping("/api/recipies")
-public class RecipiesWS extends AbstractMongoCrudWS<Recipe> {
+public class RecipiesWS extends AbstractCrudWS<Recipe> {
 
 	@Autowired
 	private RecipeRepository recipeRepository;
