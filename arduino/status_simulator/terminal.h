@@ -1,3 +1,6 @@
+#ifndef TERMINAL_H
+#define TERMINAL_H
+
 #include "Arduino.h"
 
 typedef void (*INT_FN_CALLBACK)(int);
@@ -25,3 +28,5 @@ private:
 	void anaylseLine(String &line);
 
 };
+
+#endif

@@ -1,6 +1,12 @@
 
 
 #include "terminal.h"
+#include "status.h"
+
+Terminal terminal(&Serial);
+Status status(&terminal);
+
+
 
 void homeCommand(){
 	Serial.println("Home received");
@@ -14,7 +20,6 @@ void moveCommand(int dist){
 	Serial.println(dist);
 }
 
-Terminal terminal(&Serial);
 
 void setup() {
 	Serial.begin(115200);
@@ -25,7 +30,9 @@ void setup() {
 }
 
 void loop() {
+	unsigned long nowMs = millis();
 	terminal.run();
+	status.run(nowMs);
 //	Serial.print("s:");
 //	Serial.print(random(0, 1000));
 //	Serial.print(":");

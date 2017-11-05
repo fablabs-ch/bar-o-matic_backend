@@ -54,3 +54,11 @@ void Terminal::anaylseLine(String &line) {
 		}
 	}
 }
+
+void Terminal::writeStatus(int distMm, int weightGr){
+	this->stream->print("s:");
+	this->stream->print(distMm);
+	this->stream->print(":");
+	this->stream->print(weightGr);
+	this->stream->println();
+}
