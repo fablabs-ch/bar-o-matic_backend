@@ -9,13 +9,16 @@ Status status(&terminal);
 
 
 void homeCommand(){
+	status.setDistMm(0);
 	Serial.println("Home received");
 }
 
 void tareCommand(){
+	status.setWeightGr(0);
 	Serial.println("Tare received");
 }
 void moveCommand(int dist){
+	status.setDistMm(dist);
 	Serial.print("Move received: ");
 	Serial.println(dist);
 }
@@ -33,10 +36,4 @@ void loop() {
 	unsigned long nowMs = millis();
 	terminal.run();
 	status.run(nowMs);
-//	Serial.print("s:");
-//	Serial.print(random(0, 1000));
-//	Serial.print(":");
-//	Serial.print(random(0, 200));
-//	Serial.println();
-//	delay(200);
 }
