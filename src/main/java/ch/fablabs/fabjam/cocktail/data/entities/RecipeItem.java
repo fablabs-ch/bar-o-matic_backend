@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class RecipeItem {
-	private Long ingredientId;
-	private Long ml;
+	private String ingredientId;
+	private Integer ml;
 }

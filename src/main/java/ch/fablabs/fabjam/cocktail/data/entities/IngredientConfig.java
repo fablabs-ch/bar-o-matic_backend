@@ -7,7 +7,7 @@ import org.springframework.data.annotation.Id;
 public class IngredientConfig implements ItfData {
 	@Id
 	private String id;
-	private Ingredient ingredient;
+	private String ingredientId;
 	private Long valveDistanceMm;
 	private Long valveId;
 }

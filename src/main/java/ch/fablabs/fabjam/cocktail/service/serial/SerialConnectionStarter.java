@@ -38,11 +38,14 @@ public class SerialConnectionStarter implements CommandLineRunner {
 		serialConnection.ifPresent(c -> c.close());
 	}
 
-	public void sendMessage(String rawLine) {
+	public boolean sendMessage(String rawLine) {
 		if (serialConnection.isPresent()) {
 			serialConnection.get().send(rawLine);
+			return true;
 		} else {
 			LOG.error("Cannot send message serial '{}' because not connexion are available", rawLine);
+			return false;
 		}
+
 	}
 }

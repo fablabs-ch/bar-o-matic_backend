@@ -1,16 +1,27 @@
 package ch.fablabs.fabjam.cocktail.service.recipe.actions;
 
-import ch.fablabs.fabjam.cocktail.data.serial.SerialStatus;
+import ch.fablabs.fabjam.cocktail.service.serial.SerialService;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 
 abstract public class AbstractAction {
 
+	@Setter
+	protected SerialService serialService;
+
 	@Setter(AccessLevel.PROTECTED)
 	@Getter
-	private boolean finished = true;
+	private boolean finished = false;
 
-	abstract public void run(SerialStatus status);
+	public void initialRun() {
+
+	}
+
+	abstract public void run();
+
+	public long getTimeoutMs(){
+		return 5000;
+	}
 
 }

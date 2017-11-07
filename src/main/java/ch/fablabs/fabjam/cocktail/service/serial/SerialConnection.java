@@ -1,13 +1,11 @@
 package ch.fablabs.fabjam.cocktail.service.serial;
 
-import ch.fablabs.fabjam.cocktail.data.type.JmsTopic;
 import jssc.SerialPort;
 import jssc.SerialPortException;
 import jssc.SerialPortList;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
-import org.springframework.jms.annotation.JmsListener;
 
 import java.util.Arrays;
 import java.util.Optional;
@@ -72,8 +70,7 @@ public class SerialConnection implements Runnable {
 					SerialPort.STOPBITS_1,
 					SerialPort.PARITY_NONE);
 
-				serialPort.setFlowControlMode(SerialPort.FLOWCONTROL_RTSCTS_IN |
-					SerialPort.FLOWCONTROL_RTSCTS_OUT);
+				serialPort.setFlowControlMode(SerialPort.FLOWCONTROL_NONE);
 
 				SerialReader sr = new SerialReader(serialPort);
 				autowireCapableBeanFactory.autowireBean(sr);

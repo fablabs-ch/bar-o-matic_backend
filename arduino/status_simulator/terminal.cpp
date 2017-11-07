@@ -10,9 +10,7 @@ void Terminal::run() {
 	if (stream) {
 		while (stream->available()) {
 			char c = stream->read();
-			if (c == '\r') {
-				//ignore
-			} else if (c == '\n') {
+			if (c == '\r' || c == '\n') {
 				anaylseLine(buffer);
 				buffer = String();
 			} else {

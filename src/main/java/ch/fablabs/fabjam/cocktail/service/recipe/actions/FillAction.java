@@ -6,14 +6,14 @@ import ch.fablabs.fabjam.cocktail.data.serial.SerialStatus;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
-@RequiredArgsConstructor
 @Slf4j
+@RequiredArgsConstructor
 public class FillAction extends AbstractAction {
 
 	private final RecipeItemFull recipeItemFull;
 
 	@Override
-	void run(SerialStatus status) {
-
+	public void run() {
+setFinished(true);
 	}
 }
