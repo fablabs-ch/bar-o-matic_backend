@@ -2,10 +2,11 @@
 #define STATUS_H
 
 #include "terminal.h"
+#include "scale.h"
 
 class Status {
 public:
-	Status(Terminal *terminal);
+	Status(Terminal *terminal, Scale* scale);
 
 	void setDistMm(int value);
 	void setWeightGr(int value);
@@ -14,10 +15,10 @@ public:
 
 private:
 	Terminal *terminal;
+	Scale* scale;
 	unsigned long nextPrint;
 
 	int distMm;
-	int weightGr;
 
 };
 
