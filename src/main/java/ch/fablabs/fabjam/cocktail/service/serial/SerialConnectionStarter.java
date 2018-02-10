@@ -40,12 +40,10 @@ public class SerialConnectionStarter implements CommandLineRunner {
 
 	public boolean sendMessage(String rawLine) {
 		if (serialConnection.isPresent()) {
-			serialConnection.get().send(rawLine);
-			return true;
+			return serialConnection.get().send(rawLine);
 		} else {
 			LOG.error("Cannot send message serial '{}' because not connexion are available", rawLine);
 			return false;
 		}
-
 	}
 }

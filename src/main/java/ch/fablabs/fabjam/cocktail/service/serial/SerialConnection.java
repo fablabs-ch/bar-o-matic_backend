@@ -83,17 +83,19 @@ public class SerialConnection implements Runnable {
 		}
 	}
 
-	public void send(String str) {
+	public boolean send(String str) {
 		if (serialPortOptional.isPresent()) {
 			try {
 				serialPortOptional.get().writeString(str + "\n");
 				LOG.debug("Serial message sent: {}", str);
+				return true;
 			} catch (SerialPortException e) {
 				LOG.error("Unable to send serial message: {}", str, e);
 			}
 		} else {
 			LOG.error("Unable to send message because port is not open: {}", str);
 		}
+		return false;
 	}
 
 

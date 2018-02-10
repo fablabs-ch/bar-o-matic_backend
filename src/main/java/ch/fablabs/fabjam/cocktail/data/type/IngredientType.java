@@ -1,7 +1,7 @@
 package ch.fablabs.fabjam.cocktail.data.type;
 
 public enum IngredientType {
-	ALCOOL,
+	ALCOHOL,
 	MINERAL,
 	SIRUP,
 	OTHER
